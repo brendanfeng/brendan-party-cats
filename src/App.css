@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.App-logo-bg {
+  display: inline-block;
+  border-radius: 50%;
+  height: 100px;
+  animation: App-logo-flash infinite 1.5s linear alternate;
+}
+
+.App-logo {
+  opacity: 0.7;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 10px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+@keyframes App-logo-flash {
+  0% {
+    background-color: red;
+    transform: translate(10px, 10px);
+   }
+  25% {
+    transform: translate(-10px, -10px)
+  }
+  50% {
+    background-color: green;
+    transform: translate(-10px, 10px)
+  }
+  75% {
+    transform: translate(10px, -10px)
+  }
+  100% {
+    background-color: blue;
+    transform: translate(10px, 10px);
+   }
+}
