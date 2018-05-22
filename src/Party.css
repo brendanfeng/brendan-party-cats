@@ -1,0 +1,58 @@
+#container{
+
+}
+
+.form {
+
+}
+
+.form-field {
+  font-size: 14px;
+  border-radius: 0px;
+  border: 1px gray solid;
+  color: black;
+}
+
+.form input {
+
+}
+
+.form select {
+  background: white;
+  margin-left: 10px;
+}
+
+.form button {
+  background-color: lightblue;
+  margin-left: 10px;
+}
+
+.form-field:active, .form-field:focus {
+  outline: 1px blue solid;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#party {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.cat {
+  margin: 0px 0px 10px 0px;
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 900px) {
+  #party {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .cat {
+    margin: 0px 10px 0px 0px;
+  }
+}

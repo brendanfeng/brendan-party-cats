@@ -6,11 +6,11 @@ class Party extends Component {
     super(props);
     this.state = {
       cats: [],
-      klass: "",
+      klass: "bounce",
       userInput: ""
     };
     this.handleInput = this.handleInput.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleInput(e) {
@@ -19,12 +19,15 @@ class Party extends Component {
     if (this.state.cats.length === 3) {
       cats.shift();
     }
-    cats.push(this.state.userInput);
-    this.setState({cats});
+    cats.push({name: this.state.userInput, klass: this.state.klass});
+    this.setState({cats, userInput: "", klass: "bounce"});
   }
 
-  handleChange(e) {
-    this.setState({userInput: e.currentTarget.value});
+  update(field) {
+    return e =>
+      this.setState({
+        [field]: e.currentTarget.value
+      });
   }
 
   render() {
@@ -32,21 +35,39 @@ class Party extends Component {
       <div id="container">
         <form className="form" onSubmit={this.handleInput}>
           <input
+            className="form-field"
             value={this.state.userInput}
-            onChange={this.handleChange}
+            onChange={this.update("userInput")}
             placeholder="Enter a cat name"
           />
-          <button type="submit">Find a Kitty</button>
+          <select
+            className="form-field"
+            value={this.state.klass}
+            onChange={this.update("klass")}
+          >
+            <option value="bounce">Bounce!</option>
+            <option value="spin">Spin!</option>
+            <option value="flip">Flip!</option>
+            <option value="blink">Blink!</option>
+          </select>
+          <button className="form-field" type="submit">
+            Find a Dancer!
+          </button>
         </form>
-        {this.state.cats.map((cat, idx) => {
-          return (
-            <img
-              key={idx}
-              alt={cat}
-              src={`https://robohash.org/set_set4/bgset_bg1/${cat}`}
-            />
-          );
-        })}
+        <div id="party">
+          {this.state.cats.map((cat, idx) => {
+            return (
+              <img
+                alt="dancing cat"
+                key={idx}
+                src={`https://robohash.org/set_set4/bgset_bg1/size_300x300/${
+                  cat.name
+                }`}
+                className={`cat ${cat.klass}`}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }

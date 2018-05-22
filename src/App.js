@@ -13,7 +13,7 @@ class App extends Component {
           <h1 className="App-title">Brendan's Party Cats!</h1>
         </header>
         <p className="App-intro">
-          Welcome to the party! Enter some text below to find your dance partner
+          Welcome to the party! Enter a name and choose a dance move below
         </p>
         <Party />
       </div>
