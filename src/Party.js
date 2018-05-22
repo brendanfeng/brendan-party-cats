@@ -16,7 +16,7 @@ class Party extends Component {
   handleInput(e) {
     e.preventDefault();
     const cats = this.state.cats;
-    if (this.state.cats.length === 3) {
+    if (this.state.cats.length === 9) {
       cats.shift();
     }
     cats.push({name: this.state.userInput, klass: this.state.klass});
